@@ -804,6 +804,7 @@ body {
 
     .product-name {
         font-size: 14px;
+        line-clamp: 2;
         -webkit-line-clamp: 2;
     }
 
@@ -944,6 +945,7 @@ body {
     .product-name {
         font-size: 14px;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         max-height: 2.8em;
     }
 

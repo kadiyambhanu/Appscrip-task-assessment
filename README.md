@@ -85,25 +85,39 @@ Validate SEO:
 ## 📁 Project Structure
 
 ```
-├── components/
-│   ├── Filters/
-│   │   └── FilterSidebar.js
-│   ├── Layout/
-│   │   ├── Navigation.js
-│   │   └── Footer.js
-│   └── Product/
-│       ├── ProductCard.js
-│       └── ProductGrid.js
-├── lib/
-│   └── api.js
-├── pages/
-│   ├── _app.js
-│   └── index.js
-├── styles/
-│   └── globals.css
-├── netlify.toml
-├── next.config.js
-└── package.json
+Appscrip-task-yourname/
+├── public/                    # Static files
+│   └── index.html            # Original HTML foundation
+│
+├── src/                       # Source code
+│   ├── components/           # Reusable React components
+│   │   ├── Header.js         # Navigation and search
+│   │   ├── Filters/          
+│   │   │   └── FilterSidebar.js
+│   │   ├── Layout/
+│   │   │   ├── Navigation.js
+│   │   │   └── Footer.js
+│   │   └── Product/
+│   │       ├── ProductCard.js
+│   │       └── ProductGrid.js
+│   │
+│   ├── pages/                # Next.js pages
+│   │   ├── _app.js          # App wrapper with HelmetProvider
+│   │   └── index.js          # Main product listing page
+│   │
+│   ├── lib/                  # Utilities and helpers
+│   │   └── api.js           # API functions (Fake Store API)
+│   │
+│   └── styles/              # Stylesheets
+│       ├── globals.css       # Global styles
+│       ├── App.css          # App-level styles
+│       └── legacy.css        # Original CSS foundation
+│
+├── .gitignore               # Git ignore rules
+├── netlify.toml             # Netlify deployment config
+├── next.config.js           # Next.js configuration
+├── package.json             # Dependencies and scripts
+└── README.md                # Project documentation
 ```
 
 ## 🎨 Features in Detail

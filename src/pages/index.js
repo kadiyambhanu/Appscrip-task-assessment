@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { getAllProducts } from '../lib/api';
-import Navigation from '../components/Layout/Navigation';
+import Header from '../components/Header';
 import Footer from '../components/Layout/Footer';
 import FilterSidebar from '../components/Filters/FilterSidebar';
 import ProductGrid from '../components/Product/ProductGrid';
@@ -211,9 +211,7 @@ export default function Home() {
         </script>
       </Helmet>
 
-      <header>
-        <Navigation />
-      </header>
+      <Header />
 
       <main className="main-content">
         {/* Promotional Banner */}

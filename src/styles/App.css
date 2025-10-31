@@ -1,0 +1,14 @@
+/* App.css - Application-level styles */
+/* This file can be used for app-specific styles if needed */
+/* Main styles are in globals.css */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
