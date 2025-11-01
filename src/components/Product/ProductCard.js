@@ -1,9 +1,17 @@
 import { formatPrice } from '../../lib/api';
 
-export default function ProductCard({ product, isFavorited = false }) {
+export default function ProductCard({ product, isFavorited = false, onToggleLike }) {
   const productImage = product.image || `https://via.placeholder.com/300x400/f5f5f5/666666?text=${encodeURIComponent(product.title || 'Product')}`;
   const isOutOfStock = product.rating?.count === 0;
   const productTitle = product.title || 'PRODUCT NAME';
+
+  const handleHeartClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onToggleLike) {
+      onToggleLike();
+    }
+  };
 
   return (
     <article className="product-card" itemScope itemType="https://schema.org/Product">
@@ -34,6 +42,7 @@ export default function ProductCard({ product, isFavorited = false }) {
         <button 
           className="product-heart" 
           type="button"
+          onClick={handleHeartClick}
           aria-label={isFavorited ? "Remove from favorites" : "Add to favorites"}
           aria-pressed={isFavorited}
         >

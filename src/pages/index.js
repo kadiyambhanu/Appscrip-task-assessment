@@ -22,7 +22,29 @@ export default function Home() {
   const [sortOption, setSortOption] = useState(SORT_OPTIONS.RECOMMENDED);
   const [isCustomizable, setIsCustomizable] = useState(false);
   const [showSortMenu, setShowSortMenu] = useState(false);
+  const [likedProducts, setLikedProducts] = useState(new Set());
   const sortDropdownRef = useRef(null);
+
+  // Load liked products from localStorage on mount
+  useEffect(() => {
+    try {
+      const savedLikes = localStorage.getItem('likedProducts');
+      if (savedLikes) {
+        setLikedProducts(new Set(JSON.parse(savedLikes)));
+      }
+    } catch (err) {
+      console.error('Error loading liked products:', err);
+    }
+  }, []);
+
+  // Save liked products to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('likedProducts', JSON.stringify(Array.from(likedProducts)));
+    } catch (err) {
+      console.error('Error saving liked products:', err);
+    }
+  }, [likedProducts]);
 
   // Close sort menu when clicking outside
   useEffect(() => {
@@ -103,6 +125,18 @@ export default function Home() {
 
   const handleCustomizableChange = (checked) => {
     setIsCustomizable(checked);
+  };
+
+  const handleToggleLike = (productId) => {
+    setLikedProducts((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(productId)) {
+        newSet.delete(productId);
+      } else {
+        newSet.add(productId);
+      }
+      return newSet;
+    });
   };
 
   const productCount = filteredProducts.length;
@@ -294,7 +328,11 @@ export default function Home() {
             )}
             
             {!loading && !error && (
-              <ProductGrid products={filteredProducts.slice(0, 9)} />
+              <ProductGrid 
+                products={filteredProducts.slice(0, 9)} 
+                likedProducts={likedProducts}
+                onToggleLike={handleToggleLike}
+              />
             )}
           </div>
         </section>
