@@ -173,7 +173,7 @@ export default function Home() {
     "name": "Product Listings",
     "description": "Browse our collection of products",
     "numberOfItems": filteredProducts.length,
-    "itemListElement": filteredProducts.slice(0, 9).map((product, index) => ({
+    "itemListElement": filteredProducts.map((product, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "item": {
@@ -336,7 +336,7 @@ export default function Home() {
             
             {!loading && !error && (
               <ProductGrid 
-                products={filteredProducts.slice(0, 9)} 
+                products={filteredProducts} 
                 likedProducts={likedProducts}
                 onToggleLike={handleToggleLike}
               />
