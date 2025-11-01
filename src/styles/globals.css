@@ -90,6 +90,9 @@ body {
     cursor: pointer;
     color: #000000;
     transition: opacity 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 .icon-item:hover {
@@ -155,6 +158,113 @@ body {
     height: 1px;
     background-color: #87CEEB;
     width: 100%;
+}
+
+/* Search Overlay */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 100px;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.search-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 25px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.search-icon {
+    color: #666;
+    flex-shrink: 0;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #000000;
+    background: transparent;
+    font-family: inherit;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.search-close:hover {
+    color: #000000;
+    transform: rotate(90deg);
+}
+
+.search-results {
+    padding: 20px 25px;
+    min-height: 200px;
+}
+
+.search-placeholder {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    padding: 40px 0;
 }
 
 /* Main Content */
