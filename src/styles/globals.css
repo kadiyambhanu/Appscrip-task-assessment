@@ -1164,5 +1164,21 @@ body {
     .copyright p {
         font-size: 11px;
     }
+
+    .search-overlay {
+        padding-top: 50px;
+    }
+
+    .search-container {
+        margin: 0 15px;
+    }
+
+    .search-input-wrapper {
+        padding: 15px 20px;
+    }
+
+    .search-input {
+        font-size: 16px;
+    }
 }
 
