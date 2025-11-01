@@ -198,6 +198,26 @@ body {
 .filters-sidebar {
     width: 280px;
     flex-shrink: 0;
+    transition: width 0.3s ease;
+}
+
+.filters-sidebar.filters-hidden {
+    width: 120px;
+}
+
+.filters-sidebar.filters-hidden .filter-group {
+    display: none;
+}
+
+.filters-sidebar.filters-hidden .filter-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    justify-content: center;
+}
+
+.filters-sidebar.filters-hidden .item-count {
+    display: none;
 }
 
 .filter-header {
@@ -220,10 +240,20 @@ body {
     text-decoration: none;
     font-size: 14px;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    transition: opacity 0.2s ease;
 }
 
 .hide-filter-link:hover {
     text-decoration: underline;
+    opacity: 0.8;
+}
+
+.hide-filter-link:active {
+    opacity: 0.6;
 }
 
 .filter-group {

@@ -22,6 +22,7 @@ export default function Home() {
   const [sortOption, setSortOption] = useState(SORT_OPTIONS.RECOMMENDED);
   const [isCustomizable, setIsCustomizable] = useState(false);
   const [showSortMenu, setShowSortMenu] = useState(false);
+  const [showFilters, setShowFilters] = useState(true);
   const [likedProducts, setLikedProducts] = useState(new Set());
   const sortDropdownRef = useRef(null);
 
@@ -137,6 +138,10 @@ export default function Home() {
       }
       return newSet;
     });
+  };
+
+  const handleToggleFilters = () => {
+    setShowFilters(!showFilters);
   };
 
   const productCount = filteredProducts.length;
@@ -265,6 +270,8 @@ export default function Home() {
             itemCount={productCount} 
             isCustomizable={isCustomizable}
             onCustomizableChange={handleCustomizableChange}
+            showFilters={showFilters}
+            onToggleFilters={handleToggleFilters}
           />
 
           {/* Right Main Product Area */}
