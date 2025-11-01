@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { formatPrice } from '../../lib/api';
 
 export default function ProductCard({ product, isFavorited = false, onToggleLike }) {
@@ -16,9 +17,11 @@ export default function ProductCard({ product, isFavorited = false, onToggleLike
   return (
     <article className="product-card" itemScope itemType="https://schema.org/Product">
       <div className="product-image">
-        <img
+        <Image
           src={productImage}
           alt={productTitle}
+          width={300}
+          height={400}
           loading="lazy"
           itemProp="image"
         />

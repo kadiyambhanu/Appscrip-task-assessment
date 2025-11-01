@@ -171,7 +171,7 @@ export default function Navigation() {
           </form>
           {searchQuery && (
             <div className="search-results">
-              <p className="search-placeholder">Search results for "{searchQuery}" will appear here</p>
+              <p className="search-placeholder">Search results for &quot;{searchQuery}&quot; will appear here</p>
             </div>
           )}
         </div>
